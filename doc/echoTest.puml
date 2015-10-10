@@ -1,0 +1,45 @@
+@startuml
+scale 1000*800
+
+title Эхо тест
+
+"User Browser" as USER <--> "Front Server" as APP : Login request/response
+activate USER
+activate APP
+APP --> USER : load message form
+USER --> APP : Subscribe to topic (/app/messaging для приема ответов)
+APP --> "ActiveMQ server" as AQ : subscribe queue: echo-out
+deactivate USER
+activate AQ
+AQ --> APP
+deactivate AQ
+deactivate APP
+
+
+"Back Server" as ESB --> AQ : subscribe to "mq:echo-in"
+activate USER
+USER --> USER : user press SEND Button
+USER --> APP : send JSON-message to URL=/app/echo
+deactivate USER
+activate APP
+APP ---> AQ : register message queue: <b>echo-in</b>
+deactivate APP
+activate AQ
+AQ --> ESB : receive message from queue
+deactivate AQ
+activate ESB
+ESB --> ESB : разбор сообщения
+ESB --> ESB : формирование ответа
+ESB --> ESB : задержка работы на 3 сек
+ESB --> AQ : register out-message queue: <b>echo-out
+deactivate ESB
+activate AQ
+AQ --> APP :  dequeue new message from echo-out
+deactivate AQ
+activate USER
+activate APP
+APP --> USER : Send Message to user browser
+deactivate APP
+USER -> USER : display received message
+
+@enduml

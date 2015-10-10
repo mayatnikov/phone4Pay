@@ -1,0 +1,45 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.2.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+
+jar {
+    baseName = 'p4p-esb'
+    version =  '0.0.1'
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven { url "https://repo.spring.io/libs-release" }
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-redis")
+
+    compile("org.springframework:spring-messaging")
+    compile("org.springframework:spring-jms:4.1.5.RELEASE")
+    compile('org.springframework:spring-context:2.0.5')
+
+//    compile('com.fasterxml.jackson.core:jackson-databind:2.1.4')
+//    compile('com.fasterxml:jackson-xml-databind:0.6.2')
+//
+
+    compile('org.apache.camel:camel-core:2.15.0')
+    compile("org.apache.camel:camel-spring-boot:2.15.0")
+    compile("org.apache.activemq:activemq-camel:5.10.0")
+    testCompile("junit:junit")
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.3'
+}
