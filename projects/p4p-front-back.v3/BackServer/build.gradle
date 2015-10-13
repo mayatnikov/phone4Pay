@@ -1,6 +1,7 @@
 buildscript {
     repositories {
         mavenCentral()
+        mavenLocal()
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.2.RELEASE")
@@ -37,6 +38,7 @@ dependencies {
     compile('org.apache.camel:camel-core:2.15.0')
     compile("org.apache.camel:camel-spring-boot:2.15.0")
     compile("org.apache.activemq:activemq-camel:5.10.0")
+    compile("phone4pay:DataDomain:0.0.1-SNAPSHOT")
     testCompile("junit:junit")
 }
 
