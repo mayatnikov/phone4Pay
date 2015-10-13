@@ -49,7 +49,7 @@
 			logout-url="/logout.do" />
 		<security:anonymous />
 		<security:remember-me data-source-ref="dataSource"
-			user-service-ref="jdbcUserService" />
+                              user-service-ref="jdbcUserService" />
 	</security:http>
 
 
@@ -106,7 +106,7 @@
 		</security:authentication-provider>
 	</security:authentication-manager>
 
-	<bean id="tokenStore"
+    <bean id="tokenStore"
 		class="org.springframework.security.oauth2.provider.token.JdbcTokenStore">
 		<constructor-arg name="dataSource" ref="dataSource"></constructor-arg>
 	</bean>

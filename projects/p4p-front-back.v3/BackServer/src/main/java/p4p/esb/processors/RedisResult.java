@@ -8,6 +8,12 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 import p4p.front.data.Echo;
 
+/*
+формирование в exchange.message ответ из всех сообщений для пользователя из redis
+заберем все из redis
+там должны лежать JSON строки serialized POJO классов
+ */
+
 @Component(value = "redisResult")
 public class RedisResult {
 
@@ -23,14 +29,11 @@ public class RedisResult {
         Echo message = camelMessage.getBody(Echo.class);
         String loginUser = message.getFrom();
         StringBuffer resp = new StringBuffer();
-
-//        List<String> rl = redis.opsForList().range(loginUser,0,-1);
-//        for (String ritem : rl ) {
-//            resp.append(ritem);
-//        }
+        resp.append("{\"RESP\":{");
 
         String ritem;
               while ((ritem=redis.opsForList().rightPop(loginUser)) != null )  resp.append(ritem);
+        resp.append("}}");
         message.setEcho("");
         message.setTo("");
         message.setData(resp.toString());

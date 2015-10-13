@@ -8,10 +8,8 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 import p4p.front.data.Echo;
 /**
- * Created with IntelliJ IDEA.
- * User: vitaly
- * Date: 20/09/15
- * Time: 16:27
+ сохранить в REDIS ответ пользователю
+ он его потом заберет
  */
 
 

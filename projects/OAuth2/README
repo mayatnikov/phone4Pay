@@ -1,0 +1,22 @@
+Original source code from:
+Spring REST OAuth Demo
+======================
+This is a demo of using OAuth 2.0 with Spring REST application, this demo is part of presentation
+https://docs.google.com/presentation/d/1wiOJTMnGWL51P6NyFTCbpJz7-TsrYYrTd6_Siv_9Sfo/edit?usp=sharing
+
+
+для запуска сервера 
+cd AuthServer
+mvn install
+cp target/AuthServer-0.0.1-SNAPSHOT.war [apache-tomcat-8]/webapps/
+cd [apache-tomcat-8]
+bin/catalina.sh run
+
+(отсутствие ошибок в логе)
+
+проверка работы:
+>>> curl -H "Accept: application/json" client1:secret@localhost:8080/AuthServer/oauth/token -d grant_type=password -d username=user_01 -d password=password
+<<< {"access_token":"fa129e33-7e9d-4a46-80e2-39fb6bbecd5e","token_type":"bearer","refresh_token":"9b8b6e92-69f8-4052-b1e5-7542e3c320d3","expires_in":3590,"scope":"delete read write"}
+
+ВНИМАНИЕ!
+Есть проблемы с JAVA8, пока запускать c JAVA7
