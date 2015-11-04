@@ -12,27 +12,26 @@ public class Echo extends Message implements Serializable {
 
     private static final long serialVersionUID = 17866556L;
 
-    private String echo;
-    private String data;
+    private String request;
+    private String response;
 
-
-    public String getData() {
-        return data;
+    public String getRequest() {
+        return request;
     }
 
-    public void setData(String data) {
-        this.data = data;
+    public void setRequest(String request) {
+        this.request = request;
     }
 
-    public String getEcho() {
-        return echo;
+    public String getResponse() {
+        return response;
     }
 
-    public void setEcho(String echo) {
-        this.echo = echo;
+    public void setResponse(String response) {
+        this.response = response;
     }
 
     public String toString() {
-        return "To:["+to+"]From:" +from + "]Echo:["+echo+"]Data:["+data+"]";
+        return "To:["+to+"]From:" +from + "]Request:["+request+"]Response:["+response+"]";
     }
 }

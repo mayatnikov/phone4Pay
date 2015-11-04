@@ -39,7 +39,7 @@ curl -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer $TOKEN" \
 -X POST localhost:8081/FrontServer/ds/echo/req \
-  --data '{"to":"Sidoroff","from":"Petroff","echo":"this is text in echo","data":"data-contents-string"}'
+  --data '{"to":"buffer","from":"?","request":"this is text in echo","response":"?"}'
 
 <<<<<<<<<<<<<<<<<<<<<
 {"from":"Login user:user_01; 

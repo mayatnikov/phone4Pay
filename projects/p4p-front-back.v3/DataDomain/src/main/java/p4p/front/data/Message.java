@@ -10,6 +10,7 @@ public class Message implements Serializable {
     Date startTransaction;
     Long trID;
     int trStatus;
+    TrType trType; // SYNC ASYNC PUSH
 
     public String getFrom() {
         return from;
@@ -49,5 +50,13 @@ public class Message implements Serializable {
 
     public void setTrStatus(int trStatus) {
         this.trStatus = trStatus;
+    }
+
+    public TrType getTrType() {
+        return trType;
+    }
+
+    public void setTrType(TrType trType) {
+        this.trType = trType;
     }
 }

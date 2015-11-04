@@ -31,11 +31,11 @@ public class RedisStore {
 
        redis.opsForList().leftPush(message.getFrom(),
                          " To:"+ message.getTo()
-                       + " Echo:" + message.getEcho()
-                       + " Data:" + message.getData() );
+                       + " Echo:" + message.getRequest()
+                       + " Data:" + message.getResponse() );
 
-        message.setData("REF=899676434");
-        message.setEcho("");
+        message.setResponse("REF=899676434");
+        message.setRequest("GetAll");
         message.setTrID(122999L);
     }
 }

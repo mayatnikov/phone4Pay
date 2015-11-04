@@ -34,10 +34,10 @@ public class EchoConverter {
         }
 
         Echo message = camelMessage.getBody(Echo.class);
-        message.setData("From:" + message.getFrom()
+        message.setResponse("From:" + message.getFrom()
                 + " To:"+ message.getTo()
-                + " Echo:" + message.getEcho()
-                + " Data:" + message.getData()
+                + " Echo:" + message.getRequest()
+                + " Data:" + message.getResponse()
                 + " HDR:" + sb.toString() );
     }
 }

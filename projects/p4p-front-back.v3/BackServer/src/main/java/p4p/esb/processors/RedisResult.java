@@ -34,9 +34,9 @@ public class RedisResult {
         String ritem;
               while ((ritem=redis.opsForList().rightPop(loginUser)) != null )  resp.append(ritem);
         resp.append("}}");
-        message.setEcho("");
+        message.setRequest("");
         message.setTo("");
-        message.setData(resp.toString());
+        message.setResponse(resp.toString());
     }
 
 
