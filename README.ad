@@ -8,4 +8,3 @@ ____
         git push github master  - вытолкнуть изменения в удаленный сервер (GitHub)
         git commit -m 'initial commit' - комит с коментарием
         git remote show github - посмотреть на репозиторий
-        git push github master  - вытолкнуть именения в удаленный сервер (GitHub)

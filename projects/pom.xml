@@ -1,0 +1,17 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>phone4pay</groupId>
+	<artifactId>project</artifactId>
+	<version>0.0.1</version>
+	<packaging>pom</packaging>
+	<properties>
+		<any.version>0.0.1.RELEASE</any.version>
+	</properties>
+	<modules>
+		<module>OAuth2</module>
+		<module>p4p-front-back.v3/DataDomain</module>
+		<module>p4p-front-back.v3/FrontServer</module>
+		<module>p4p-front-back.v3/BackServer</module>
+	</modules>
+</project>
