@@ -23,21 +23,16 @@ public class RedisResult {
     @Autowired
     private StringRedisTemplate redis;
 
-
     public void handle(Exchange exchange) {
         Message camelMessage = exchange.getIn();
         Echo message = camelMessage.getBody(Echo.class);
-        String loginUser = message.getFrom();
         StringBuffer resp = new StringBuffer();
         resp.append("{\"RESP\":{");
 
         String ritem;
-              while ((ritem=redis.opsForList().rightPop(loginUser)) != null )  resp.append(ritem);
+              while ((ritem=redis.opsForList().rightPop(message.getLogin())) != null )  resp.append(ritem);
         resp.append("}}");
         message.setRequest("");
-        message.setTo("");
         message.setResponse(resp.toString());
     }
-
-
 }

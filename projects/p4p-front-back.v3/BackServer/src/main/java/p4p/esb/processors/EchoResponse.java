@@ -4,8 +4,11 @@ import org.apache.camel.Exchange;
 import org.apache.camel.Message;
 import org.springframework.stereotype.Component;
 import p4p.front.data.Echo;
+import p4p.front.data.TrType;
 
+import java.util.Date;
 import java.util.Map;
+import java.util.Random;
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,9 +18,10 @@ import java.util.Map;
  */
 
 
-@Component(value = "echoConverter")
-public class EchoConverter {
+@Component(value = "echoResponse")
+public class EchoResponse {
 
+    Random rnd = new Random();
 
     public void handle(Exchange exchange) {
         Message camelMessage = exchange.getIn();
@@ -34,10 +38,18 @@ public class EchoConverter {
         }
 
         Echo message = camelMessage.getBody(Echo.class);
-        message.setResponse("From:" + message.getFrom()
-                + " To:"+ message.getTo()
-                + " Echo:" + message.getRequest()
-                + " Data:" + message.getResponse()
-                + " HDR:" + sb.toString() );
+
+        message.setEndTransaction(new Date());
+        message.setTrID( rnd.nextLong() );
+        message.setTrType(TrType.SYNC);
+
+        message.setResponse("MSG:{Login:[" + message.getLogin()
+                + "],Request:[" + message.getRequest()
+                + "],StartTransaction:[" + message.getStartTransaction()
+                + "],EndTransaction:[" + message.getEndTransaction()
+                + "],TrID:[" + message.getTrID()
+                + "],TrType:[" + message.getTrType()
+                + "],HDR:[" + sb.toString()+"]"
+        );
     }
 }

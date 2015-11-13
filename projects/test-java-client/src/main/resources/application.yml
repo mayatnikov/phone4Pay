@@ -1,0 +1,14 @@
+app:
+    par1: 1-test-parameter-1
+    par2: 2-test-parameter-2
+
+front:
+    echo-uri: http://localhost:8081/FrontServer/ds/echo
+    cgi-uri:  http://localhost/cgi/printenv.pl
+auth:
+    uri: http://localhost:8080/AuthServer/oauth/token
+    param: grant_type=password&username=user_01&password=password
+    user: client1
+    password: secret
+
+# client1:secret@localhost:8080/AuthServer/oauth/token -d grant_type=password -d username=user_01 -d password=password

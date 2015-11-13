@@ -5,28 +5,20 @@ import java.util.Date;
 
 
 public class Message implements Serializable {
-    String from;
-    String to;
+    String login;
     Date startTransaction;
+    Date endTransaction;
     Long trID;
     int trStatus;
     TrType trType; // SYNC ASYNC PUSH
 
-    public String getFrom() {
-        return from;
-    }
+    public Date getEndTransaction() {  return endTransaction;   }
 
-    public void setFrom(String from) {
-        this.from = from;
-    }
+    public void setEndTransaction(Date endTransaction) { this.endTransaction = endTransaction; }
 
-    public String getTo() {
-        return to;
-    }
+    public String getLogin() {   return login;   }
 
-    public void setTo(String to) {
-        this.to = to;
-    }
+    public void setLogin(String login) {  this.login = login;  }
 
     public Date getStartTransaction() {
         return startTransaction;

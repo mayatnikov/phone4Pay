@@ -22,7 +22,9 @@ import javax.jms.ConnectionFactory;
         @Override
         public void configure() throws Exception {
 
-            from("activemq:p4p-echo-out").to("log:ECHO-OUT-RESPONSE?level=INFO");                        // .to("bean:echoHandler");
+            from("activemq:p4p-echo-in").to("log:ECHO-IN-REQUEST?level=INFO");
+            from("direct:in").to("activemq:p4p-echo-in");
+                                   // .to("bean:echoHandler");
 
         }
     }

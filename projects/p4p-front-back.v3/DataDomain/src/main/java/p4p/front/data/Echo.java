@@ -32,6 +32,6 @@ public class Echo extends Message implements Serializable {
     }
 
     public String toString() {
-        return "To:["+to+"]From:" +from + "]Request:["+request+"]Response:["+response+"]";
+        return "Login:["+login+"]Request:["+request+"]Response:["+response+"]startTransaction:["+startTransaction;
     }
 }

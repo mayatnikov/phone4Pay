@@ -32,8 +32,8 @@ public class MyRoutes {
         return new RouteBuilder() {
             @Override
             public void configure() throws Exception {
-                from("activemq:p4p-echo-in").to("log:ECHO-IN-REQUEST?level=INFO").beanRef("echoConverter");
-                from("activemq:p4p-echo-redis").to("log:ECHO-REDIS-REQUEST?level=INFO").beanRef("redisStore");
+                from("activemq:p4p-echo-in").threads(15).beanRef("echoResponse");
+                from("activemq:p4p-echo-redis").threads(15).beanRef("redisStore");
                 from("activemq:p4p-echo-result").to("log:ECHO-REDIS-RESULT?level=INFO").beanRef("redisResult");
             }
         };
