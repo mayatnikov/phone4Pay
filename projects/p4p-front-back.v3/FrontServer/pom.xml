@@ -10,7 +10,7 @@
 	<packaging>war</packaging>
 
     <properties>
-        <camel.version>2.16.0</camel.version>
+        <camel.version>3.3.0</camel.version>
         <activemq.version>5.12.0</activemq.version>
         <fasterxml.version>2.10.1</fasterxml.version>
     </properties>

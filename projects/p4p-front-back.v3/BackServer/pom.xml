@@ -11,9 +11,9 @@
     <description>Phone for Pay Back-server</description>
 
     <properties>
-        <camel.version>2.15.2</camel.version>
+        <camel.version>3.3.0</camel.version>
         <activemq.version>5.10.0</activemq.version>
-        <spring.version>4.1.5.RELEASE</spring.version>
+		<spring.version>5.2.7.RELEASE</spring.version>
     </properties>
 
     <dependencies>
